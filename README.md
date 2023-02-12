@@ -1,5 +1,5 @@
-# Zettl
-Zettl is a simple and efficient note-taking application designed for the command line. It provides users with an alternative to traditional UI-based note taking apps like Notion, OneNote, Evernote, etc. The notes are stored in markdown format, making them highly flexible and easily accessible. This application provides users with maximum control over their notes and the ability to use Vim or other efficient text editors. The keyboard-only interface makes taking notes extremely fast, without the need for a mouse. This app is ideal for people who want to take notes quickly and efficiently, without any distractions.
+# zettl
+zettl is a simple and efficient note-taking application designed for the command line. It provides users with an alternative to traditional UI-based note taking apps like Notion, OneNote, Evernote, etc. The notes are stored in markdown format, making them highly flexible and easily accessible. This application provides users with maximum control over their notes and the ability to use Vim or other efficient text editors. The keyboard-only interface makes taking notes extremely fast, without the need for a mouse. This app is ideal for people who want to take notes quickly and efficiently, without any distractions.
 
 ## Main Features
 - Create different notebooks to organize notes on a high level
@@ -11,7 +11,7 @@ Zettl is a simple and efficient note-taking application designed for the command
 - Take screenshots and easily paste them into notes
 
 ## Getting Started
-To install Zettl you just need to place it in your PATH. In order to do this, you can follow these steps:
+To install zettl you just need to place it in your PATH. In order to do this, you can follow these steps:
 
 1. Clone the repository: `git clone https://github.com/hencho108/zettl.git`
 2. Change into the repository directory: `cd <repository>`
@@ -24,7 +24,7 @@ If the last command shows the version number, you are all set.
 The main motivation behind this project is to provide a simple, efficient and flexible note-taking solution that is not tied to any proprietary format or application. The traditional UI-based note-taking apps often come with a lot of features and complexity, which can slow down the note-taking process. 
 
 ## Markdown as Note-taking Format
-By default, Zettl stores notes in markdown format and I highly recommend keeping it this way. Markdown is a popular format for writing and formatting text in a readable way. It provides a simple syntax for formatting text, including headings, bold, italic, lists, links, and more. The use of markdown as the note-taking format provides several benefits, including:
+By default, zettl stores notes in markdown format and I highly recommend keeping it this way. Markdown is a popular format for writing and formatting text in a readable way. It provides a simple syntax for formatting text, including headings, bold, italic, lists, links, and more. The use of markdown as the note-taking format provides several benefits, including:
 - Easy to Read: The notes are written in plain text, which makes them easy to read and understand. The markdown syntax provides a simple way to format the text, making it readable and organized.
 - Portable: The notes are stored in plain text format, which makes them portable and easy to access on any platform. They can be stored in a cloud-based service, like Dropbox, and accessed from anywhere.
 - Versatile: The markdown format is widely used and supported by many different applications, making it versatile and easy to use. The notes can be opened with a markdown editor like Obsidian if the user wants to have a UI.
@@ -155,7 +155,7 @@ z new meetings/xyz-project
 ```
 This will create a new note named "xzy-project" in the "meetings" folder of the current active notebook.
 
-**Careful**: If you end <notepath> on a `/`, Zettl will assume that the last part of <notepath> is a folder instead of the name of the note. Hence,
+**Careful**: If you end <notepath> on a `/`, zettl will assume that the last part of <notepath> is a folder instead of the name of the note. Hence,
 ```bash
 z new meetings/xyz-project/
 ```
