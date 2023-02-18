@@ -43,7 +43,7 @@ To install zettl you just need to place it in your PATH. In order to do this, yo
 If the last command shows the version number, you are all set.
 
 ## Basic Usage
-To start off you might want to create a new *personal* notebook:
+To start, you might want to create a new *personal* notebook:
 ```bash
 z create notebook personal
 ```
@@ -55,7 +55,7 @@ Create your first note:
 ```bash
 z new
 ```
-This will create a new note named according to `$DEFAULT_NOTE_NAME_FORMAT` (current date by default) and open it in the editor configured in `$Z_EDITOR` (Vim by default). The following lines are added automatically (behavior can be configured with `$NOTE_NAME_AS_TITLE` and `$NOTE_CREATED_HEADER`.
+This will create a new note named according to `$DEFAULT_NOTE_NAME_FORMAT` (by default the date of today) and open it in the editor configured in `$Z_EDITOR` (Vim by default). The following lines are added automatically (confiurable with `$NOTE_NAME_AS_TITLE` and `$NOTE_CREATED_HEADER`).
 ```
 # 2023-02-18
 Created: 2023-02-18
