@@ -3,19 +3,19 @@
 # Variables -------------------------------------------------------------------
 
 NOTE_EXTENSIONS="md|txt"
-DEFAULT_NOTE_EXTENSION="md"
-DEFAULT_NOTE_NAME_FORMAT=$(date +"%Y-%m-%d")
+DEFAULT_NOTE_EXTENSION=${DEFAULT_NOTE_EXTENSION:-"md"}
+DEFAULT_NOTE_NAME_FORMAT=${DEFAULT_NOTE_NAME_FORMAT:-$(date +"%Y-%m-%d")}
 NOTE_NAME_AS_TITLE=${NOTE_NAME_AS_TITLE:-1}
 INSERT_NOTE_CREATED_HEADER=${INSERT_NOTE_CREATED_HEADER:-1}
 NOTE_CREATED_HEADER=${NOTE_CREATED_HEADER:-"Created: $(date +"%Y-%m-%d")"}
-EDITOR=${EDITOR:-vim}
+Z_EDITOR=${Z_EDITOR:-vim}
 NOTES_DIR=${NOTES_DIR:-"$HOME/zettl"}
 DEFAULT_NOTEBOOK_NAME=${DEFAULT_NOTEBOOK_NAME:-"default"}
 COPY_SCREENSHOT_PATH_TO_CLIPBOARD=${COPY_SCREENSHOT_PATH_TO_CLIPBOARD:-1}
-CLIPBOARD_SCREENSHOT_PATH_WRAPPER="![](file:*)"
-DEFAULT_SCREENSHOT_NAME_FORMAT=$(date +"%Y-%m-%d")
-DEFAULT_SCREENSHOT_EXTENSION="png"
-VERSION="0.0.1"
+CLIPBOARD_SCREENSHOT_PATH_WRAPPER=${CLIPBOARD_SCREENSHOT_PATH_WRAPPER:-"![](file:*)"}
+DEFAULT_SCREENSHOT_NAME_FORMAT=${DEFAULT_SCREENSHOT_NAME_FORMAT:-$(date +"%Y-%m-%d")}
+DEFAULT_SCREENSHOT_EXTENSION=${DEFAULT_SCREENSHOT_EXTENSION:-"png"}
+Z_VERSION="0.0.1"
 
 # Functions -------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ list_notebooks() {
         fi
         i=$((i + 1))
     done
-    echo "\nSelect a notebook to activate by entering a number or hit enter to stay in the current notebook: "
+    echo -e "\nSelect a notebook to activate by entering a number or hit enter to stay in the current notebook: "
     local input
     read input
     if [[ $input =~ ^[0-9]+$ ]]; then
@@ -190,7 +190,7 @@ list_notes() {
         return 1
     fi
     # Open selected note
-    echo "\nEnter the number of the note to open (or hit enter to do nothing):"
+    echo -e "\nEnter the number of the note to open (or hit enter to do nothing):"
     read -r selected_note
     if [[ $selected_note =~ ^[0-9]+$ ]] && [ $selected_note -le ${#notes[@]} ]; then
         local selected_note_path=$(echo "${notes[$((selected_note - 1))]}" | awk '{print $1}')
@@ -294,7 +294,7 @@ search_notebook() {
                     IFS=$'\n'
                     selected_note=($(echo "$selected_note" | awk -F: '{print $1}'))
                     IFS=$' '
-                    $EDITOR "$selected_note"
+                    $Z_EDITOR "$selected_note"
                 else
                     echo "Invalid input. Please enter a valid number corresponding to a search result."
                 fi
@@ -413,7 +413,7 @@ init() {
 edit_note() {
     # Open note in editor
     local note_path=$1
-    $EDITOR "$note_path"
+    $Z_EDITOR "$note_path"
     editor_return_value=$?
     if [ $editor_return_value -eq 0 ]; then
         # Update last edited note file
@@ -538,6 +538,6 @@ case "$1" in
     screenshot "$2"
     ;;
 "version" | "v")
-    echo "Zettl v${VERSION}"
+    echo "Zettl v${Z_VERSION}"
     ;;
 esac
