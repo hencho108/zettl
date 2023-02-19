@@ -1,7 +1,7 @@
-# zettl
-zettl is a simple and efficient note-taking application designed for the command line. It provides users with an alternative to traditional UI-based note taking apps like Notion, OneNote, Evernote, etc. The notes are stored in markdown format, making them highly flexible and easily accessible. This application provides users with maximum control over their notes and the ability to use Vim or other efficient text editors. The keyboard-only interface makes taking notes extremely fast, without the need for a mouse. This app is ideal for people who want to take notes quickly and efficiently, without any distractions.
+# Zettl
+Zettl is a simple and efficient note-taking application designed for the command line. It provides users with an alternative to traditional UI-based note taking apps like Notion, OneNote, Evernote, etc. The notes are stored in markdown format, making them highly flexible and easily accessible. This application provides users with maximum control over their notes and the ability to use Vim or other efficient text editors. The keyboard-only interface makes taking notes extremely fast, without the need for a mouse. This app is ideal for people who want to take notes quickly and efficiently, without any distractions.
 
-![demo](img/zettl-demo.gif)
+![demo](img/Zettl-demo.gif)
 
 ## Index
 - [Main Features](#main-features)
@@ -35,9 +35,9 @@ e
 - Take screenshots and easily paste them into notes
 
 ## Getting Started
-To install zettl you just need to place it in your PATH. In order to do this, you can follow these steps:
+To install Zettl you just need to place it in your PATH. In order to do this, you can follow these steps:
 
-1. Clone the repository: `git clone https://github.com/hencho108/zettl.git`
+1. Clone the repository: `git clone https://github.com/hencho108/Zettl.git`
 2. Change into the repository directory: `cd <repository>`
 3. Make the script executable: `chmod +x z.sh`
 4. If you want to run the script from anywhere on your system, you can add it to your PATH. You can do this by creating a symbolic link in a directory that is in your PATH, such as /usr/local/bin. You can create the symbolic link using the following command: `ln -s $(pwd)/z.sh /usr/local/bin/z`
@@ -71,7 +71,7 @@ z notes -t 10
 The main motivation behind this project is to provide a simple, efficient and flexible note-taking solution that is not tied to any proprietary format or application. The traditional UI-based note-taking apps often come with a lot of features and complexity, which can slow down the note-taking process. 
 
 ## Markdown as Note-taking Format
-By default, zettl stores notes in markdown format and I highly recommend keeping it this way. Markdown is a popular format for writing and formatting text in a readable way. It provides a simple syntax for formatting text, including headings, bold, italic, lists, links, and more. The use of markdown as the note-taking format provides several benefits, including:
+By default, Zettl stores notes in markdown format and I highly recommend keeping it this way. Markdown is a popular format for writing and formatting text in a readable way. It provides a simple syntax for formatting text, including headings, bold, italic, lists, links, and more. The use of markdown as the note-taking format provides several benefits, including:
 - Easy to Read: The notes are written in plain text, which makes them easy to read and understand. The markdown syntax provides a simple way to format the text, making it readable and organized.
 - Portable: The notes are stored in plain text format, which makes them portable and easy to access on any platform. They can be stored in a cloud-based service, like Dropbox, and accessed from anywhere.
 - Versatile: The markdown format is widely used and supported by many different applications, making it versatile and easy to use. The notes can be opened with a markdown editor like Obsidian if the user wants to have a UI.
@@ -102,7 +102,7 @@ This will create a new notebook named "daily-notes" in the notes directory speci
 #### Environment Variables
 The following environment variables can be set to configure the behavior of the command:
 
-- NOTES_DIR: This variable specifies the directory where all notebooks will be stored. If this variable is not set, the default value is $HOME/notes.
+- NOTES_DIR: This variable specifies the directory where all notebooks will be stored. If this variable is not set, the default value is `$HOME/notes`.
 
 ### Open 
 The open command allows you to open an existing notebook in your notes directory.
@@ -127,7 +127,7 @@ This will open the notebook named "daily-notes" in the notes directory specified
 #### Environment Variables
 The following environment variables can be set to configure the behavior of the command:
 
-- NOTES_DIR: This variable specifies the directory where all notebooks will be stored. If this variable is not set, the default value is $HOME/notes.
+- NOTES_DIR: This variable specifies the directory where all notebooks will be stored. If this variable is not set, the default value is `$HOME/notes`
 
 ### Notebook
 This command displays the name of the currently active notebook.
@@ -202,21 +202,21 @@ z new meetings/xyz-project
 ```
 This will create a new note named "xzy-project" in the "meetings" folder of the current active notebook.
 
-**Careful**: If you end <notepath> on a `/`, zettl will assume that the last part of <notepath> is a folder instead of the name of the note. Hence,
+**Careful**: If you end <notepath> on a `/`, Zettl will assume that the last part of <notepath> is a folder instead of the name of the note. Hence,
 ```bash
 z new meetings/xyz-project/
 ```
-will create a new note in the "meetings/xyz-project" folder named according to $DEFAULT_NOTE_NAME_FORMAT (date of today by default".
+will create a new note in the "meetings/xyz-project" folder named according to `$DEFAULT_NOTE_NAME_FORMAT` (date of today by default".
 
 #### Output
-The function will create a new note with the default format if the file at the specified <notepath> does not exist. If the file exists, the function will not make any changes to it. After the file has been created or checked, the function will open the file in the text editor specified by the $Z_EDITOR environment variable.
+The function will create a new note with the default format if the file at the specified <notepath> does not exist. If the file exists, the function will not make any changes to it. After the file has been created or checked, the function will open the file in the text editor specified by the `$Z_EDITOR` environment variable.
 
 #### Environment variables
 The following environment variables can be set to configure the behavior of the command:
 - DEFAULT_NOTE_NAME_FORMAT: The default format to use for the note name if none is specified in the filepath.
 - INSERT_NOTE_CREATED_HEADER: If set to 1, the function will insert a header with the current date and time to the newly created note.
 - NOTE_NAME_AS_TITLE: If set to 1, the function will use the note name as the title in markdown format.
-- NOTE_CREATED_HEADER: The header text to insert into a newly created note if $INSERT_NOTE_CREATED_HEADER is set to 1.
+- NOTE_CREATED_HEADER: The header text to insert into a newly created note if `$INSERT_NOTE_CREATED_HEADER` is set to 1.
 - NOTES_DIR: The root directory for all notebooks and notes.
 
 ### Append note
@@ -320,7 +320,7 @@ z l
 - NOTES_DIR: the root directory where all of the user's notebooks and notes are stored
 
 #### Output
-If a last edited note exists, the function opens the note for editing in the editor specified by the $Z_EDITOR environment variable. If there is no last edited note, the function outputs an error message to the console:
+If a last edited note exists, the function opens the note for editing in the editor specified by the `$Z_EDITOR` environment variable. If there is no last edited note, the function outputs an error message to the console:
 
 ```bash
 Error: no last edited note found.
@@ -389,7 +389,7 @@ No notes in bin for notebook 'current_notebook'.
 ```
 
 #### Environment Variables
-This function requires the $NOTES_DIR environment variable to be set, which is the path to the directory where all the notebooks and notes are stored.
+This function requires the `$NOTES_DIR` environment variable to be set, which is the path to the directory where all the notebooks and notes are stored.
 
 
 ### Move Note
@@ -467,16 +467,16 @@ the following output would be displayed:
 Enter the number of the note you want to open or hit Enter to do nothing:
 ```
 
-If the user inputs 1, the note located at /home/user/notes/personal/note1.txt would be opened in the text editor specified by the $Z_EDITOR environment variable.
+If the user inputs 1, the note located at /home/user/notes/personal/note1.txt would be opened in the text editor specified by the `$Z_EDITOR` environment variable.
 
 #### Environment variables
 The function makes use of the following environment variable:
 
-- NOTES_DIR: The environment variable $NOTES_DIR specifies the directory in which all the notebooks and notes are stored.
-- Z_EDITOR: The environment variable $Z_EDITOR specifies the text editor to be used to open the selected note.
+- NOTES_DIR: The environment variable `$NOTES_DIR` specifies the directory in which all the notebooks and notes are stored.
+- Z_EDITOR: The environment variable `$Z_EDITOR` specifies the text editor to be used to open the selected note.
 
 #### Output
-The function outputs a list of all the notes that contain the search query, preceded by their index number in square brackets. The user is then prompted to input the index number of the note they want to open or hit Enter to do nothing. If a valid index number is entered, the selected note is opened in the text editor specified by the $Z_EDITOR environment variable. If an invalid index number is entered or if no number is entered, an appropriate error message is displayed. If no notes are found that match the search query, a message saying "No results found for your search" is displayed. If the current notebook does not exist, a message saying "Notebook <notebook_name> does not exist." is displayed.
+The function outputs a list of all the notes that contain the search query, preceded by their index number in square brackets. The user is then prompted to input the index number of the note they want to open or hit Enter to do nothing. If a valid index number is entered, the selected note is opened in the text editor specified by the `$Z_EDITOR` environment variable. If an invalid index number is entered or if no number is entered, an appropriate error message is displayed. If no notes are found that match the search query, a message saying "No results found for your search" is displayed. If the current notebook does not exist, a message saying "Notebook <notebook_name> does not exist." is displayed.
 
 
 ### Show Notebook Tree
@@ -524,7 +524,7 @@ z screencapture screenshot.png
 ```
 
 #### Output
-This will capture a screenshot of a selected area and save it to the default "img" directory in the current notebook directory. The filename will be in the format of the value of $DEFAULT_SCREENSHOT_NAME_FORMAT and the extension will be in the format of the value of $DEFAULT_SCREENSHOT_EXTENSION. If a file with the same name already exists, the function will prompt the user to overwrite, dismiss, or add anyways (with a counter) and then execute the user's choice.
+This will capture a screenshot of a selected area and save it to the default "img" directory in the current notebook directory. The filename will be in the format of the value of `$DEFAULT_SCREENSHOT_NAME_FORMAT` and the extension will be in the format of the value of `$DEFAULT_SCREENSHOT_EXTENSION.` If a file with the same name already exists, the function will prompt the user to overwrite, dismiss, or add anyways (with a counter) and then execute the user's choice.
 
 
 #### Environment variables
