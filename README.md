@@ -1,7 +1,7 @@
 # Zettl
 Zettl is a simple and efficient note-taking application designed for the command line. It provides users with an alternative to traditional UI-based note taking apps like Notion, OneNote, Evernote, etc. The notes are stored in markdown format, making them highly flexible and easily accessible. This application provides users with maximum control over their notes and the ability to use Vim or other efficient text editors. The keyboard-only interface makes taking notes extremely fast, without the need for a mouse. This app is ideal for people who want to take notes quickly and efficiently, without any distractions.
 
-![demo](img/Zettl-demo.gif)
+![demo](img/zettl-demo.gif)
 
 ## Index
 - [Main Features](#main-features)
