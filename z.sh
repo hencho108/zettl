@@ -413,22 +413,26 @@ init() {
 edit_note() {
     # Open note in editor
     local note_path=$1
+    IFS=$'\n' read -rd '' note_folder note_name file_ext <<< "$(split_file_path "$note_path")"
+    # Get the modification time of the file
+    last_mod_time_before=$(stat -f %m "$note_path")
     $Z_EDITOR "$note_path"
+    last_mod_time_after=$(stat -f %m "$note_path")
     editor_return_value=$?
     if [ $editor_return_value -eq 0 ]; then
-        # Update last edited note file
-        echo "$note_path" >"$NOTES_DIR/$current_notebook/.last_edited"
-        # Print confirmation
-        if [[ $note_folder == "." ]]; then
-            echo "Note '$note_name' saved in notebook '$current_notebook'."
-        else
-            echo "Note '$note_folder/$note_name' saved in notebook '$current_notebook'."
+        # Check if the modification time has changed
+        if [ "$last_mod_time_before" != "$last_mod_time_after" ]; then
+            # Update last edited note file
+            echo "$note_path" >"$NOTES_DIR/$current_notebook/.last_edited"
+            # Print confirmation
+            if [[ $note_folder == "." ]]; then
+                echo "Note '$note_name' saved in notebook '$current_notebook'."
+            else
+                echo "Note '$note_name' saved in notebook '$current_notebook'."
+            fi
+            # Update last edited
+            echo "$note_path" >"$NOTES_DIR/$current_notebook/.last_edited"
         fi
-    fi
-    # Update last edited note file
-    editor_return_value=$?
-    if [ $editor_return_value -eq 0 ]; then
-        echo "$note_path" >"$NOTES_DIR/$current_notebook/.last_edited"
     fi
 }
 
